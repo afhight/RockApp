@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  
+  <%= image_tag @artist.avatar.url, width: "250" %><br /><strong><%= @artist.name %></strong>
+
+</p>
+
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>

@@ -1,0 +1,33 @@
+<%= form_for(@song) do |f| %>
+  <% if @song.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
+
+      <ul>
+      <% @song.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :name, placeholder: "Song Title" %>
+  </div>
+  
+  <div class="field">
+    <%= f.select(:rating, ["1", "2", "3","4","5","6","7","8","9","10"], {include_blank: 'Rating'}) %>
+  </div>
+
+  <div class="field">
+    <%= f.select(:artist_id, @artists.collect {|a| [a.name, a.id]}, {include_blank: 'Please select an artist'}) %>
+  </div>
+
+<div class="field">
+  <%= f.label "Link to Music Video" %>
+  <%= f.text_field :musicvid, placeholder: "Insert URL here" %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Artists</h1>
+
+
+
+
+  <div class="row">
+    <% @artists.each do |artist| %>
+      <div class="col-md-6">
+        <div class="well">
+          <p><%= image_tag artist.avatar.url, width: "50" %></p><h2><%= link_to artist.name, artist %></h2>
+          
+          <p><%= link_to 'Show', artist %>
+            <%= link_to 'Edit', edit_artist_path(artist) %>
+            <%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+<br>
+
+<%= link_to 'New Artist', new_artist_path, class: "btn btn-default" %>
