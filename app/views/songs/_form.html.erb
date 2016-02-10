@@ -11,23 +11,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.text_field :name, placeholder: "Song Title" %>
-  </div>
-  
-  <div class="field">
-    <%= f.select(:rating, ["1", "2", "3","4","5","6","7","8","9","10"], {include_blank: 'Rating'}) %>
-  </div>
+<div class="well">
 
   <div class="field">
     <%= f.select(:artist_id, @artists.collect {|a| [a.name, a.id]}, {include_blank: 'Please select an artist'}) %>
   </div>
+  
+  <div class="field">
+    <%= f.text_field :name, placeholder: "Song Title" %>
+  </div>
+  
+  <br>
+ 
 
-<div class="field">
-  <%= f.label "Link to Music Video" %>
-  <%= f.text_field :musicvid, placeholder: "Insert URL here" %>
+  <div class="field">
+    <p style="color:white;"><%= f.label "Link to Music Video:" %></p> 
+    <%= f.text_field :musicvid, placeholder: "Insert URL Here" %>
+  </div>
+  <br />
+
+  <div class="field">
+    <%= f.select(:rating, ["1", "2", "3","4","5","6","7","8","9","10"], {include_blank: 'Your Rating'}) %>
+  </div>
+  <br>
 
   <div class="actions">
     <%= f.submit %>
   </div>
+</div>
+
 <% end %>

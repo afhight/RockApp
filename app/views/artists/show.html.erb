@@ -1,10 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  
-  <%= image_tag @artist.avatar.url, width: "250" %><br /><strong><%= @artist.name %></strong>
 
-</p>
+<div class="well">
+	<h2 style="color:white;">
+	  <%= image_tag @artist.avatar.url, width: "300" %>
+	  <br />
+	  <p><% "#{@artist.rating}".to_i.times do |rank| %>
+	  <p2><span class="glyphicon glyphicon-star"></span></p2>
+        <% end %>
+	<br> Songs by <%= @artist.name %>
+	</h2>
+
+	<% @artist.songs.each do |song| %>
+			
+			<h4><%= link_to "#{song.name}", song %></h4>
+		
+		<% end %>
+
+<p><%= link_to new_song_path do %>
+  <span class="glyphicon glyphicon-plus"></span> Add New Song
+  <% end %>
+</p>		
+
+
+</div>
 
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
 <%= link_to 'Back', artists_path %>
+

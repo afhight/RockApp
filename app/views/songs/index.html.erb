@@ -1,9 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Songs</h1>
+<h1>ALL SONGS</h1>
 
 
-
+<p><%= link_to new_song_path do %>
+  <span class="glyphicon glyphicon-plus"></span> Add New
+  <% end %>
+</p>
 
  <div class="row">
     <% @songs.each do |song| %>
@@ -11,12 +14,22 @@
         <div class="well">
           <h2>'<%= link_to song.name, song %>', by 
             <%= link_to song.artist.name, artist_path(id: song.artist) %></h2>
-          <%= image_tag song.artist.avatar.url, width: "100" %>
-          <h4><%= song.rating %></h4>
-          <br />
-        <p><%= link_to 'Show', song %>
-          <%= link_to 'Edit', edit_song_path(song) %>
-          <%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          <%= image_tag song.artist.avatar.url, width: "100" %> <br />
+          <p2><% "#{song.rating}".to_i.times do %>
+            <span class="glyphicon glyphicon-star"></span>
+            <% end %>
+          </p2>
+        <p>
+          <%= link_to song do %>
+            <span class="glyphicon glyphicon-play"></span>
+          <% end %>
+          <%= link_to edit_song_path(song) do %>
+            <span class="glyphicon glyphicon-pencil"></span>
+          <% end %>
+          <%= link_to song, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <span class="glyphicon glyphicon-trash"></span>
+          <% end %>
+        </p>
       </div>
     </div>
   <% end %>
@@ -24,4 +37,4 @@
 
 <br>
 
-<%= link_to 'New Song', new_song_path %>
+

@@ -1,27 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @song.name %>
+
+<p><%= link_to new_song_path do %>
+  <span class="glyphicon glyphicon-plus"></span> Add New
+  <% end %>
 </p>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @song.rating %>
-</p>
 
-<p>
-  <strong>Artist:</strong>
-  <%= @song.artist_id %>
-</p>
+  <div class="well">
+ 
+    <h2>'<%= "#{@song.name}" %>', by 
+            <%= link_to @song.artist.name, artist_path(id: @song.artist) %></h2>
+          <%= image_tag @song.artist.avatar.url, width: "100" %> <br />
+    <p><% "#{@song.rating}".to_i.times do |rank| %>
+	  <p2><span class="glyphicon glyphicon-star"></span></p2>
+        <% end %>
+        <br>    
+		<iframe src="<%= @song.musicvid %>" width="420" height="315" frameborder="0" allowfullscreen></iframe>
+  </div>
 
-<p>
-<%= link_to("#{@song.name}", @song.musicvid, alt: "Music video", width: "300", border: "10" ) %>
+</p>
 
 <!-- <a href="#" target="_blank"><img src="#.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
  -->
 </p>
+
 
 <%= link_to 'Edit', edit_song_path(@song) %> |
 <%= link_to 'Back', songs_path %>

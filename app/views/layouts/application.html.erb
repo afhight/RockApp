@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Top5</title>
+  <title>Top 5</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -14,12 +14,13 @@
         <div class="cover-container">
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">AFH Top5</h3>
+              <h3 class="masthead-brand"><%= image_tag "rock.png", width: 40 %> AFH Top5</h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li><%= link_to "Top 5", root_path %></li>
-								  <li><%= link_to "Artists", artists_path %></li>
-								  <li><%= link_to "Songs", songs_path %></li>
+                  <li><%= link_to "Top 5 Songs", root_path %></li>
+                  <li><%= link_to "Top 5 Artists", topartists_path %></li>
+								  <li><%= link_to "All Artists", artists_path %></li>
+								  <li><%= link_to "All Songs", songs_path %></li>
                 </ul>
               </nav>
             </div>
@@ -29,7 +30,7 @@
           </div>
           <div class="mastfoot">
             <div class="inner">
-              <p>My Footer -  AFH Top5 &copy;2016</p>
+              <p>Top 5 * Alison Faye Hight &copy;2016</p>
             </div>
           </div>
         </div>

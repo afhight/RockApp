@@ -1,0 +1,24 @@
+<h1>Rock 'n Roll, y'all</h1>
+
+
+<div class="row">
+  <h2> My Top 5 Artists </h2>
+  
+  
+    <% @artists.each do |artist|%>  
+    <div class="well">  
+        <h2>
+        	<%= link_to artist.name, artist %>
+        </h2>
+          <%= image_tag artist.avatar.url, height: "150" %>
+         <br>
+				<p>
+					<% "#{artist.rating}".to_i.times do |rank| %>
+	  			<p2><span class="glyphicon glyphicon-star"></span></p2>
+        	<% end %>
+        </p>	
+        </div>             
+    <% end %>
+ 	</div>
+
+

@@ -1,2 +1,21 @@
-<h1>Rock#roll</h1>
-<p>Find me in app/views/rock/roll.html.erb</p>
+<h1>Rock n Roll, y'all</h1>
+
+
+<div class="row">
+  <h2> My Top 5 Songs</h2>
+    <% @songs.each do |song| %>
+      <div class="well well-lg">
+        <h2>'<%= link_to song.name, song %>', by 
+            <%= link_to song.artist.name, artist_path(id: song.artist) %></h2>
+          <%= image_tag song.artist.avatar.url, height: "150" %>
+	<p><% "#{song.rating}".to_i.times do |rank| %>
+	  <p2><span class="glyphicon glyphicon-star"></span></p2>
+        <% end %>
+        </p>	             
+     </div>
+  <% end %>
+</div>
+
+
+
+
