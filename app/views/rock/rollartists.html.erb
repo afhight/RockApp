@@ -4,10 +4,11 @@
 <div class="row">
   <h2> My Top 5 Artists </h2>
   
+  <% @count = 1 %>
   
-    <% @artists.each do |artist|%>  
+    <% @artists.each do |artist| %>  
     <div class="well">  
-        <h2>
+        <h2><%= "#{@count}. " %>
         	<%= link_to artist.name, artist %>
         </h2>
           <%= image_tag artist.avatar.url, height: "150" %>
@@ -17,7 +18,8 @@
 	  			<p2><span class="glyphicon glyphicon-star"></span></p2>
         	<% end %>
         </p>	
-        </div>             
+        </div>  
+        <% @count += 1 %>           
     <% end %>
  	</div>
 

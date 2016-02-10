@@ -4,6 +4,6 @@ class RockController < ApplicationController
   end
 
   def rollartists
-  	@artists = Artist.order(rating: :desc).limit(5)
+  	@artists = Artist.order(rating:  :desc).limit(5)
   end
 end
